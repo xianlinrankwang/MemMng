@@ -96,8 +96,8 @@ void *Heap2Malloc(size_t MallocOfSize)
 		printf("i times%d\r\n", i);
 		printf("addr %#x\r\n",_pBlcok );
 
-//		if(_pBlcok != &ListTail)
-//		{
+		if(_pBlcok != &ListTail)
+		{
 		printf("running here!\r\n");
 			_pRtnAddr = (void*)(((uint8_t*)_pPreBlock->pnextFreeBlock) + heapStructSize);//这一块主要是跨过结构体的头部，从他的实际使用地址开始赋值
 			_pPreBlock->pnextFreeBlock = _pBlcok->pnextFreeBlock;//删掉当前的_pBlock
@@ -115,7 +115,7 @@ void *Heap2Malloc(size_t MallocOfSize)
 				NewBlcokInserIntoList(_pNewBlcok);
 				FreeBytesRemaininings -= _pBlcok->FreeBlockSize;
 			}
-//		}
+		}
 
 	}
 

@@ -80,7 +80,7 @@ void *Heap2Malloc(size_t MallocOfSize)
 		}
 	}
 
-	int i = 0;
+
 	if ((MallocOfSize > 0) && (MallocOfSize < configTOTAL_HEAP_SIZE - alignsize))
 	{
 		_pPreBlock = &ListHead;
@@ -90,11 +90,9 @@ void *Heap2Malloc(size_t MallocOfSize)
 		{
 			_pPreBlock = _pBlcok;
 			_pBlcok    = _pBlcok->pnextFreeBlock;
-			i++;
+	
 
 		}
-		printf("i times%d\r\n", i);
-		printf("addr %#x\r\n",_pBlcok );
 
 		if(_pBlcok != &ListTail)
 		{

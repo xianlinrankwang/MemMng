@@ -121,3 +121,17 @@ void *Heap2Malloc(size_t MallocOfSize)
 	return _pRtnAddr;
 }
 
+void* HeapFree(void* pv)
+{
+	uint8_t* puc = (uint8_t*)pv;
+	Block_Link* pxlink = NULL;
+
+	if (NULL != pv)
+	{
+		puc -= heapStructSize;
+
+		pxlink = (void*)puc;
+
+		NewBlcokInserIntoList((Block_Link *)pxlink);
+	}
+}
